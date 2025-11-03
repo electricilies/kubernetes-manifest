@@ -40,14 +40,16 @@ spec:
                 name: electricilies-postgres
             - secretRef:
                 name: electricilies-minio
-          readinessProbe: &health
+          readinessProbe:
             httpGet:
-              path: /health
+              path: /ready
               port: 8080
             periodSeconds: 5
             failureThreshold: 10
           livenessProbe:
-            <<: *health
+            httpGet:
+              path: /health
+              port: 8080
             periodSeconds: 10
             failureThreshold: 3
           resources:
