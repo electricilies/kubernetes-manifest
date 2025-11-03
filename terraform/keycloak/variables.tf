@@ -26,7 +26,7 @@ variable "frontend_base_url" {
 }
 
 variable "frontend_web_origins" {
-  type = tuple([string])
+  type = list(string)
 }
 
 variable "frontend_admin_url" {
