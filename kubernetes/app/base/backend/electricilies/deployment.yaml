@@ -23,7 +23,7 @@ spec:
               value: "5432"
             - name: GIN_MODE
               value: release
-            - name: REDIS_URL
+            - name: REDIS_ADDRESS
               value: redis
             - name: S3_ENDPOINT
               value: http://minio.minio:80
