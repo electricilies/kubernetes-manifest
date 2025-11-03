@@ -9,6 +9,9 @@ concurrency:
   cancel-in-progress: false
   group: update-image
 
+env:
+  renovate-version: "41.169"
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
@@ -29,11 +32,16 @@ jobs:
           app-id: ${{ vars.ELECTRICILIES_BOT_APP_ID }}
           owner: ${{ github.repository_owner }}
           repositories: infrastructure
+      - name: Cache Docker images
+        uses: ScribeMD/docker-cache@0.5.0
+        with:
+          key: docker-${{ runner.os }}-renovate-${{ env.renovate-version }}
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v43.0.12
         with:
           token: ${{ steps.get_token.outputs.token }}
           configurationFile: renovate/action-renovate-config.js
+          renovate-version: ${{ env.renovate-version }}
         env:
           RENOVATE_GITHUB_REPOSITORY: ${{ github.repository }}
           RENOVATE_GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
