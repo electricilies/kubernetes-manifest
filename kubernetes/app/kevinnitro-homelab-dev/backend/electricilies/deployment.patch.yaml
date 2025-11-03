@@ -18,4 +18,4 @@ spec:
             - name: KC_REALM
               value: electricilies-dev
             - name: S3_ENDPOINT
-              value: http://minio.electricilies-dev-backend:80
+              value: http://minio.electricilies-dev-minio:80
