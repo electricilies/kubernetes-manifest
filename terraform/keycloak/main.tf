@@ -20,11 +20,12 @@ resource "keycloak_realm" "electricilies" {
 }
 
 resource "keycloak_openid_client" "backend" {
-  realm_id      = keycloak_realm.electricilies.id
-  client_id     = "backend"
-  name          = "Backend"
-  access_type   = "CONFIDENTIAL"
-  client_secret = var.backend_client_secret
+  realm_id                 = keycloak_realm.electricilies.id
+  client_id                = "backend"
+  name                     = "Backend"
+  access_type              = "CONFIDENTIAL"
+  client_secret            = var.backend_client_secret
+  service_accounts_enabled = true # FIXME: Why backend require this?
 }
 
 resource "keycloak_openid_client" "frontend" {
