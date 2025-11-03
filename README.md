@@ -18,3 +18,8 @@
     <img alt="Wakatime" src="https://wakatime.com/badge/github/electricilies/infrastructure.svg"/>
   </a>
 </div>
+
+## Note
+
+- This is incomplete manifest with
+  - No keycloak infra declared

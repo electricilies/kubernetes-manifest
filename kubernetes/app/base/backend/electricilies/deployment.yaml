@@ -25,14 +25,18 @@ spec:
               value: release
             - name: REDIS_URL
               value: redis
-            - name: S3_REGION_NAME
-              value: us-east-1
             - name: S3_ENDPOINT
               value: http://minio.minio:80
-            - name: KEYCLOAK_CLIENT_ID
-              value: backend
-            - name: KEYCLOAK_ISSUER
+            - name: S3_REGION_NAME
+              value: us-east-1
+            - name: S3_BUCKET_NAME
               value: electricilies
+            - name: KC_REALM
+              value: electricilies
+            - name: KC_CLIENT_ID
+              value: backend
+            - name: KC_BASE_PATH
+              value: keycloak.keycloak:8080
           envFrom:
             - secretRef:
                 name: electricilies-keycloak
