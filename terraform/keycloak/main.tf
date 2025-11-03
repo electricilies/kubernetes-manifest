@@ -10,10 +10,12 @@ terraform {
 
 resource "keycloak_realm" "electricilies" {
   realm                    = "electricilies-dev"
-  registration_allowed     = true
-  reset_password_allowed   = true
-  remember_me              = true
+  duplicate_emails_allowed = false
   login_with_email_allowed = true
+  registration_allowed     = true
+  remember_me              = true
+  reset_password_allowed   = true
+  verify_email             = true
   attributes = {
     userProfileEnable = true
   }
