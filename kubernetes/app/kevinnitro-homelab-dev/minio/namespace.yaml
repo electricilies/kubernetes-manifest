@@ -4,5 +4,3 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: electricilies-dev-minio
-  labels:
-    prometheus.kevinnitro/enabled: "1"
