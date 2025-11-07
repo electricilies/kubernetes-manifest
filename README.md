@@ -1,4 +1,4 @@
-# KUBERNETES-MAFNIFEST
+# INFRASTRUCTURE
 
 <div align=center>
   <a href="https://sonarcloud.io/summary/new_code?id=electricilies_infrastructure">
