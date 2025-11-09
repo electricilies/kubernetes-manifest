@@ -22,6 +22,7 @@ variable "frontend_client_secret" {
 
 variable "frontend_root_url" {
   type        = string
+  default     = ""
   description = "When specified, this URL is prepended to any relative URLs found within valid_redirect_uris, web_origins, and admin_url. NOTE: Due to limitations in the Keycloak API, when the root_url attribute is used, the valid_redirect_uris, web_origins, and admin_url attributes will be required"
 }
 
@@ -33,7 +34,7 @@ variable "frontend_base_url" {
 
 variable "frontend_web_origins" {
   type        = list(string)
-  default     = ["+"]
+  default     = ["*"]
   description = "A list of allowed CORS origins. To permit all valid redirect URIs, add +. Note that this will not include the * wildcard. To permit all origins, explicitly add *"
 }
 

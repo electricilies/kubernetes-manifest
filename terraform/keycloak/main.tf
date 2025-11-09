@@ -216,7 +216,6 @@ resource "keycloak_user" "users" {
   email_verified = true
   attributes = {
     first_name    = each.value.first_name
-    role          = each.value.role,
     first_name    = each.value.first_name,
     last_name     = each.value.last_name,
     phone_number  = each.value.phone_number,
