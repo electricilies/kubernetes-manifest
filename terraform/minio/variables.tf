@@ -7,5 +7,6 @@ variable "minio_username" {
 }
 
 variable "minio_password" {
-  type = string
+  type      = string
+  sensitive = true
 }
