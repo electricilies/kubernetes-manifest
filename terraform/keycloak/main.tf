@@ -52,7 +52,7 @@ resource "keycloak_openid_client" "swagger" {
   name                  = "Swagger"
   access_type           = "PUBLIC"
   standard_flow_enabled = true
-  valid_redirect_uris   = var.swagger_valid_redirect_uris
+  web_origins           = var.swagger_web_origins
 }
 
 resource "keycloak_realm_user_profile" "userprofile" {

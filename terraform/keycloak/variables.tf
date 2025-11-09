@@ -50,8 +50,8 @@ variable "frontend_admin_url" {
   description = "URL to the admin interface of the client"
 }
 
-variable "swagger_valid_redirect_uris" {
+variable "swagger_web_origins" {
   type        = list(string)
   default     = ["*"]
-  description = "A list of valid redirect URIs for the client. Wildcards are permitted"
+  description = "A list of allowed CORS origins. To permit all valid redirect URIs, add +. Note that this will not include the * wildcard. To permit all origins, explicitly add *"
 }
