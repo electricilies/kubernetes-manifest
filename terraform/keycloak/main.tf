@@ -55,6 +55,29 @@ resource "keycloak_openid_client" "swagger" {
   web_origins           = var.swagger_web_origins
 }
 
+data "keycloak_openid_client_scope" "roles" {
+  realm_id = keycloak_realm.electricilies.id
+  name     = "roles"
+}
+
+resource "keycloak_generic_protocol_mapper" "realm_role_more" {
+  realm_id        = keycloak_realm.electricilies.id
+  client_scope_id = data.keycloak_openid_client_scope.roles.id
+  name            = "realm roles more"
+  protocol        = "openid-connect"
+  protocol_mapper = "oidc-usermodel-realm-role-mapper"
+  config = {
+    "introspection.token.claim" : "true",
+    "multivalued" : "true",
+    "userinfo.token.claim" : "true",
+    "id.token.claim" : "true",
+    "lightweight.claim" : "false",
+    "access.token.claim" : "true",
+    "claim.name" : "roles",
+    "jsonType.label" : "String"
+  }
+}
+
 resource "keycloak_realm_user_profile" "userprofile" {
   realm_id = keycloak_realm.electricilies.id
 
