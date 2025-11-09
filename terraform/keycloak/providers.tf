@@ -3,4 +3,3 @@ provider "keycloak" {
   client_secret = var.terraform_client_secret
   url           = var.keycloak_url
 }
-
